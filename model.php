@@ -1,29 +1,42 @@
 <?php
-//  LS Data Model for Google Calendar.  PHP array.  Verson 1.1.
-//  Copyright (C) 2016 Little Systems
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
+/*
+ * Data Model for Google Calendar
+ * Copyright (C) 2017 Little Systems
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
-//                                     Type         Length    Primary Key   Foreign Key           Description
+/*
+ * PHP arrays -
+ * Version 1.1
+ *
+ * Sourced from Google, available under the Creative Commons 
+ * Attribution 3.0 License and the Apache 2.0 License.
+ *
+ */
+
+/*
+ *                                     Type         Length    Primary Key   Foreign Key           Description
+ */
 $structure = array (
                                        'type',      'length', 'primarykey', 'foreignkey',         'description'
 );
 
+/*
+ * https://developers.google.com/google-apps/calendar/v3/reference/calendarList
+ */
 $table = array(
-  // https://developers.google.com/google-apps/calendar/v3/reference/calendarList
-  // from under the Creative Commons Attribution 3.0 License and the Apache 2.0 License.
   'calendarList' => array(
     'kind'                    => array('Text',      256,      '',           '',                   'Type of the resource ("calendar#calendarListEntry").'),
     'etag'                    => array('Text',      256),
@@ -45,9 +58,8 @@ $table = array(
     'deleted'                 => array('Boolean'),
   ),
 
-  // https://developers.google.com/google-apps/calendar/v3/reference/calendars
-  // from under the Creative Commons Attribution 3.0 License and the Apache 2.0 License.
 /*
+ * https://developers.google.com/google-apps/calendar/v3/reference/calendars
   'calendars' => array(
     'kind'                    => array('Text',      256,      '',           ''                    'Type of the resource ("calendar#calendar").'),
     'etag'                    => array('Text',      256),
@@ -59,8 +71,9 @@ $table = array(
   ),
 */
 
-  // https://developers.google.com/google-apps/calendar/v3/reference/events
-  // from under the Creative Commons Attribution 3.0 License and the Apache 2.0 License.
+/* 
+ * https://developers.google.com/google-apps/calendar/v3/reference/events
+ */
   'events' => array(
     'calendarId'              => array('Text',      256,      'Y',          'calendarList,id'),
     'kind'                    => array('Text',      256,      '',           '',                   'Type of the resource ("calendar#event").'),
@@ -102,5 +115,3 @@ $table = array(
     'attachments'             => array('JSON'),
   ),
 );
-
-?>
