@@ -75,7 +75,6 @@ $table = array(
  * https://developers.google.com/google-apps/calendar/v3/reference/events
  */
   'events' => array(
-    'calendarId'              => array('Text',      256,      'Y',          'calendarList,id'),
     'kind'                    => array('Text',      256,      '',           '',                   'Type of the resource ("calendar#event").'),
     'etag'                    => array('Text',      256),
     'id'                      => array('Text',      256,      'Y',          '',                   'Opaque identifier of the event. When creating new single or recurring events, you can specify their IDs...'),
